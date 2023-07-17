@@ -11,9 +11,9 @@ const productSchema =  mongoose.Schema({
         maxLength: [100, "Name is too large"]
 
     },
-    avatar:{
-        type:String,
-        data:Buffer
+    image:{ 
+        data: Buffer,
+        type: String,
     },
     description:{
             type: String,
@@ -26,7 +26,6 @@ const productSchema =  mongoose.Schema({
     },
     unit:{
         type:String,
-        required: true,
         enum:{
             values:  ["kg","litre","pcs"],
             message:"unit value can't be {value},must be kg/litre/pcs"
@@ -34,7 +33,6 @@ const productSchema =  mongoose.Schema({
     },
     quantity:{
         type:Number,
-        required:true,
         min:[0, "qty can't be negetive"],
         validator:(value)=>{
             const isInteger= Number.isInteger(value);
@@ -50,7 +48,7 @@ const productSchema =  mongoose.Schema({
 },
 status:{
         type:String,
-        required: true,
+        
         enum:{
         values:  ['in-stock','out-of-stock','Discontinued' ],
         message:"status can't be {VALUE}"

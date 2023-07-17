@@ -16,11 +16,9 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  avater:
+  photo:
   {
     type:String,
-    data: Buffer,
-    
   },
   date: {
     type: Date,
